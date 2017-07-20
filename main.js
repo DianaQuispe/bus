@@ -1,3 +1,55 @@
+
+
+var todos = [];
+var todito = document.getElementById("mos").value;
+
+function Indentidad(nombre,apellido,dni) {
+ this.nombre = nombre.toLowerCase();
+ this.apellido = apellido.toLowerCase();
+ this dni = dni;
+ this.todosID = (todos.length +1);
+}
+
+Producto.prototype.toHTML = function() {
+  var html = '';
+  html += this.nombre.toUpperCase() + '<br>';
+  html += this.apellido.toUpperCase() + '<br>';
+  html += 'Cantidad: ' + this.dni + '<br>';
+  html += '<br><br>';
+  return html;
+}
+
+function mergeHTML (){
+  var html = '';
+  for (i=0;i<todos.length; i++){
+    html += todos[i].toHTML();
+  }
+  return html;
+}
+
+//función que imprime un producto luego de ingresarlo
+function printHTML (html){
+  mos.innerHTML = '';
+  mos.innerHTML = html;
+}
+
+var guarda = document.getElementById("reservar"); //boton reserva
+guarda.onclick = function() {
+
+}
+
+function reservar() {
+var nombre = document.getElementById('nombre').value;
+var apellido = document.getElementById("apellido").value;
+var dni = document.getElementById("DNI").value;
+
+var datos = new Indentidad(nombre,apellido,dni);
+todos.push(datos);
+printHTML(datos.toHTML());
+}
+
+
+
 /*
 function buscar (asientos, dni) {
    for (var i = 0; i < asientos.length; i++) {
