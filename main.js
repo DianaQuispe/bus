@@ -3,30 +3,60 @@
 var todos = [];
 var todito = document.getElementById("mos").value;
 
+//////  todos son click
+var celdas = document.getElementsByTagName('td');
+for (var i = 0; i < celdas.length; i++) {
+    celdas[i].addEventListener('click',redirect,false);
+}
+function redirect(event){
+document.getElementById("mos").innerHTML=(event.target.textContent);
+}
+/////
+
+
+ var celdas1 = document.getElementsByTagName('td');
+for (var i = 0; i < celdas1.length; i++) {
+    celdas1[i].addEventListener('click',cambiar_color_over,false);
+}
+   
+function cambiar_color_over(event){ 
+   tabla.style.backgroundColor="#66ff33";
+      celda.style.backgroundColor="#66ff33";
+
+ }
+
+
+
+
 function Indentidad(nombre,apellido,dni) {
  this.nombre = nombre.toLowerCase();
  this.apellido = apellido.toLowerCase();
- this dni = dni;
+ this.dni = dni;
  this.todosID = (todos.length +1);
 }
 
-Producto.prototype.toHTML = function() {
+
+
+
+
+Indentidad.prototype.toHTML = function() {
   var html = '';
-  html += this.nombre.toUpperCase() + '<br>';
-  html += this.apellido.toUpperCase() + '<br>';
-  html += 'Cantidad: ' + this.dni + '<br>';
+  html +=   "<div>"+ "Nombre: " +this.nombre.toUpperCase() + '<br>';
+  html += "Apellido: " + this.apellido.toUpperCase() + '<br>';
+  html += 'DNI: ' + this.dni + '<br>' + "</div>";
   html += '<br><br>';
   return html;
 }
 
-function mergeHTML (){
+function mergeHTML(){
   var html = '';
-  for (i=0;i<todos.length; i++){
+  for (i=0; i<todos.length; i++){
     html += todos[i].toHTML();
   }
   return html;
 }
 
+//
 //función que imprime un producto luego de ingresarlo
 function printHTML (html){
   mos.innerHTML = '';
@@ -35,98 +65,73 @@ function printHTML (html){
 
 var guarda = document.getElementById("reservar"); //boton reserva
 guarda.onclick = function() {
-
-}
-
-function reservar() {
-var nombre = document.getElementById('nombre').value;
+  var nombre = document.getElementById('nombre').value;
 var apellido = document.getElementById("apellido").value;
 var dni = document.getElementById("DNI").value;
 
 var datos = new Indentidad(nombre,apellido,dni);
+
 todos.push(datos);
 printHTML(datos.toHTML());
 }
 
+var mostrar= document.getElementById("listar");
+mostrar.onclick = function() {
+printHTML(mergeHTML());
+}
+
+
+//
+/*
+
+  function hacer_click() {
+      alert("Me haz dado un click");
+    }
+    function cambio(co) {
+      this.color =color.style.backgroundColor="#f34";
+    }
+
+
+*/
 
 
 /*
-function buscar (asientos, dni) {
-   for (var i = 0; i < asientos.length; i++) {
-      if (asientos[i] != undefined ) 
-         if (asientos[i].dni == dni)
-            return asientos[i];
-   }
-   return '';
-}
-function mostrar(asientos){
-   var s1 = "", s2 = "";
-   for (var i = 0; i < asientos.length; i++) {
-      var e =  (asientos[i] != undefined)  ?  '*' : '';
-      if ( i % 2 == 0)
-         s1 += (i+1) + "[" + e + "] ";
-      else
-         s2 += (i+1) + "[" + e + "] ";
-   }
-   return "\n" + s1 + "\n" + s2 + "\n";
-}  
 
-function reserva () {
-   var N = 10; // Número de asientos
-   var asientos = [];
-   for (var i = 0; i < N; i++) {
-      asientos[i] = undefined;
-   }
-   var mensaje = "0: Salir\n" +
-                 "1: Reservar  asiento\n" +
-                 "2: Liberar asiento \n" + 
-                 "3: Seleccionar asiento \n" +
-                 "4: Buscar por DNI \n";
+function cambiar_color_out(celda){ 
+   celda.style.backgroundColor="#dddddd" 
+}   
    
-   var option = 0;
-   while (true){
-      var str = mostrar(asientos) + mensaje + " >> ingrese opcion:" ;
-      option = parseInt( prompt( str )  );
-      if (option == 0) {
-         break;
-      }else if (option == 1) {
-         str = "seleccione asiento: " + mostrar(asientos);
-         var nro = parseInt( prompt( str )  );
-         if (nro > 0 && nro <= N) {
-            var name =  prompt( "nombre del pasajero" )  ;
-            var id = parseInt( prompt( "dni del pasajero"  ) );
-            asientos[nro - 1] = {
-               nombre : name,
-               dni: id
-            };
-         }
-      }else if (option == 2) {
-         str = "seleccione asiento: " + mostrar(asientos);
-         var nro = parseInt( prompt( str )  );
-         if (nro >0 && nro <= N) {
-            asientos[nro - 1] = undefined;
-         }
-       }else if (option == 3) {
-         str = "seleccione asiento: " + mostrar(asientos);
-         var nro = parseInt( prompt( str )  );
-         if (nro > 0 && nro <= N) {
-            str = mostrar(asientos) +
-                     "Nombre del pasajero: " + asientos [nro - 1].nombre + 
-                     "DNI del pasajero: " + asientos [nro - 1].dni;
-                
-            alert (str);
-         }
-      }
-      else if (option == 4) {
-         str = "ingrese dni: ";
-         var dni = parseInt( prompt( str )  );
-         
-         alert ( "usuario:" +  buscar (asientos, dni).nombre );
-       }
-      
-   } 
-   imprimir(asientos);
-}
+<table width=100> 
+<tr> 
+   <td bgcolor="#dddddd" id="celda1" onclick="cambiar_color_over(this)" onmouseout="cambiar_color_out(this)">Casilla numero1 </td> 
+</tr> 
+<tr> 
+   <td bgcolor="#dddddd" id="celda2" onclick="cambiar_color_over(this)" onmouseout="cambiar_color_out(this)">Casilla numero2</td> 
+</tr> 
+ 
+<tr> 
+   <td bgcolor="#dddddd" id="celda10" onclick="cambiar_color_over(this)" onmouseout="cambiar_color_out(this)">Casilla numero 10</td> 
+</tr> 
+</table> 
 
-//reserva();
+
+onmouseout="cambiar_color_out(this)
+<div><br>
+      <table width="25%" cellpadding="0" cellspacing="10">
+        <tr>
+          <td><input type="text" name="nombre" id="nombre"> <br></td>
+          <td>
+            <button id="reservar" type="botton" name="button" >Reservar</button>
+          </td>
+        </tr>
+        <tr>
+          <td><input type="text" name="apellido" id="apellido"> </td>
+        </tr>
+        <tr>
+          <td><input type="text" name="dni" id="DNI"> </td>
+          <td><button type="submit" id="cancelar">Cancelar</button>
+          </td>
+        </tr>
+      </table><br>
+
 */
