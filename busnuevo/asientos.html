@@ -50,19 +50,22 @@
 				<td>29</td>	
 			</tr>	
 	</table><br><br>
-	<div> DNI
-		<input type="text" placeholder="dni" id="buscarDNI" name="input">
-		<button type="submit" id="buscando" onclick="buscar()">Buscar <br></button>
+	<label>
+		<div> DNI
+		<input type="text" placeholder="dni" id="buscarDNI"  name="input">
+		<button type="submit" onclick="busqueda()" id="buscando">Buscar <br></button>
    		 </div>	<br><br>
-
-		<input type="text" placeholder="nombre" name="nombre" id="nombre"> <br><br>
-	    <input type="text" placeholder="apellido" name="apellido" id="apellido"><br><br> 
-		<input type="text" placeholder="DNI" name="dni" id="dni"> <br><br>
-		<button type="botton" id="reservar" name="button" >Reservar</button> <br> <br>
-		<button type="submit" id="cancelar">Cancelar</button> <br><br>
-    	<button type="submit" id="listar" onclick="reservar()" >Listar</button>
-    	<div id="div"></div>
-    	<div id="div2"></div>
+		</label>
+	
+		<label>NOMBRE <input type="text" placeholder="nombre" name="nombre" id="nombre"> 
+		</label><br><br>
+ 		<label>APELLIDO <input type="text" placeholder="apellido" name="apellido" id="apellido"></label><br><br>
+	    <label>DNI <input type="text" placeholder="DNI" name="dni" id="dni"></label><br><br>
+	    <label>
+	     <button type="submit" id="reservar" onclick="reservar()">Reservar</button> 
+	     <button type="submit" id="cancelar">Cancelar</button> 
+	     <button type="submit" id="listar" onclick="listar()" >Listar</button> </label><br><br>
+    	<div id="div"></div> <br><br>
 
     </div>
 	</center>
