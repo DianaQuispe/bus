@@ -1,5 +1,21 @@
 
+
+function reservar () {
+var toditos = 32;	
 var todos = [];
+for(var i =0; i< toditos; i++) {
+todos[i] = undefined;
+}
+var nombre = document.getElementById('nombre').value;
+var apellido =  document.getElementById("apellido").value;
+var dni = document.getElementById("dni").value;
+var div = document.getElementById("div");
+div.innerHTML+= "<div>" + "Nombre: " + nombre + "<br>" + "Apellido: " + apellido + "<br>" + "DNI: " + dni + "<br>" + "<br>" + "</div>" ;
+
+}
+
+
+
 
 //////  todos son click
 var celdas = document.getElementsByTagName('td');
@@ -40,16 +56,7 @@ function Persona(nombre, apellido, dni) {
 var persona = new Persona(nombre, apellido, dni);
 todos.push(persona);
 
-function busca() {
-	//var x = document.getElementById("textito");
-	var buscar = document.getElementById("textito").value;
-	for(var i =0; i <todos.length; i++) {
-		if( buscar == "todos.dni"){
-			alert("asd");
-		}else alert("todos[i][1]");
-	}
 
-}
 
 var reservar = document.getElementById("reservar");
 var lista = document.getElementById("listar");
@@ -57,16 +64,18 @@ var lista = document.getElementById("listar");
 
 // reservar.innerHTML = todos;
 
-function sera() {
 
-var nombre = document.getElementById('nombre').value;
-var apellido =  document.getElementById("apellido").value;
-var dni = document.getElementById("dni").value;
-var div = document.getElementById("div");
-div.innerHTML+= "<div>" + "Nombre: " + nombre + "<br>" + "Apellido: " + apellido + "<br>" + "DNI: " + dni + "<br>" + "<br>" + "</div>" ;
+
+
+var buscarDNI = document.getElementById("buscarDNI");
+function buscar() {
+	//var x = document.getElementById("textito");
+	for(var i =0; i <todos.length; i++) {
+		if( buscarDNI == todos[i].dni){
+			alert("asd");
+		}else alert("todos[i][1]");
+	}
 
 }
-
-
 
 
