@@ -8,8 +8,8 @@
 	<center>
 	<h1>Asientos de bus</h1>
 	<table id="tabla" border="2" width="25%" cellpadding="6" cellspacing="10">
-		<tr>
-				<td  >4</td>
+		<tr  >
+				<td id="celda" >4</td>
 				<td>8</td>
 				<td>12</td>
 				<td>16</td>
@@ -18,7 +18,7 @@
 				<td>28</td>
 				<td>32</td>
 			</tr>
-			<tr>
+			<tr >
 				<td>3</td>
 				<td>7</td>
 				<td>11</td>
@@ -28,7 +28,7 @@
 				<td>27</td>
 				<td>31</td>	
 			</tr>
-			
+			<th colspan="2"></th>
 			<tr>
 				<td>2</td>
 				<td>6</td>
@@ -51,15 +51,16 @@
 			</tr>	
 	</table><br><br>
 	<div> DNI
-		<input type="text" id="buscarDNI" name="input">
-		<button type="submit" id="buscar" value= "botoncito" name="sdfgsg">Buscar <br></button>
+		<input type="text" placeholder="dni" id="textito" name="input">
+		<button type="submit" id="buscar" onclick="busca()">Buscar <br></button>
    		 </div>	<br><br>
+
 		<input type="text" placeholder="nombre" name="nombre" id="nombre"> <br><br>
 	    <input type="text" placeholder="apellido" name="apellido" id="apellido"><br><br> 
 		<input type="text" placeholder="DNI" name="dni" id="dni"> <br><br>
 		<button type="botton" id="reservar" name="button" >Reservar</button> <br> <br>
 		<button type="submit" id="cancelar">Cancelar</button> <br><br>
-    	<button type="submit" id="listar"   onclick="sera()" >Listar</button>
+    	<button type="submit" id="listar" onclick="sera()" >Listar</button>
     	<div id="div"></div>
     	<div id="div2"></div>
 
